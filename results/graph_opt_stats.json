@@ -1,0 +1,47 @@
+{
+ "model": "yolox-tiny",
+ "resolution": 416,
+ "levels": {
+  "original": {
+   "Conv": 83,
+   "Sigmoid": 80,
+   "Mul": 74,
+   "Constant": 38,
+   "Concat": 21,
+   "Slice": 9,
+   "Add": 7,
+   "MaxPool": 3,
+   "Shape": 3,
+   "Reshape": 3,
+   "Resize": 2,
+   "Transpose": 1
+  },
+  "basic": {
+   "Conv": 83,
+   "Sigmoid": 80,
+   "Mul": 74,
+   "Concat": 18,
+   "Add": 7,
+   "Slice": 6,
+   "MaxPool": 3,
+   "Reshape": 3,
+   "Resize": 2,
+   "Transpose": 1
+  },
+  "all": {
+   "Conv": 77,
+   "QuickGelu": 74,
+   "Concat": 18,
+   "Add": 7,
+   "Slice": 6,
+   "FusedConv": 6,
+   "MaxPool": 3,
+   "Reshape": 3,
+   "Resize": 2,
+   "Transpose": 1
+  }
+ },
+ "total_nodes_original": 324,
+ "total_nodes_basic": 277,
+ "total_nodes_all": 197
+}

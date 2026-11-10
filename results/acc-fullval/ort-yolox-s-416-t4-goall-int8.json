@@ -1,0 +1,649 @@
+{
+ "id": "ort-yolox-s-416-t4-goall-int8",
+ "config": {
+  "model": "yolox-s",
+  "backend": "onnxruntime",
+  "resolution": 416,
+  "threads": 4,
+  "graph_opt": "all",
+  "precision": "int8",
+  "batch_size": 1,
+  "id": "ort-yolox-s-416-t4-goall-int8"
+ },
+ "env": {
+  "timestamp_utc": "2026-11-10T03:34:20+00:00",
+  "git": {
+   "commit": "HEAD",
+   "dirty": true
+  },
+  "os": "Darwin 25.5.0 (arm64)",
+  "cpu_model": "Apple M1",
+  "cpu_cores_logical": 8,
+  "cpu_cores_physical": 8,
+  "ram_gb": 8.0,
+  "python": "3.12.15",
+  "torch": "2.15.0",
+  "onnxruntime": "1.31.1",
+  "onnx": "1.23.2",
+  "numpy": "2.5.4",
+  "opencv": "5.0.0.93",
+  "pycocotools": "2.0.11",
+  "yolox": "0.3.0",
+  "power_source": "AC Power",
+  "load_avg_1m_at_start": 6.34,
+  "notes": "Laptop CPU; no thermal-state control. Power source recorded at run start. Background load not controlled."
+ },
+ "model_file": {
+  "path": "yolox-s-416-int8.onnx",
+  "size_mb": 9.076423645019531,
+  "sha256": "f19844798a0a36c780529f819f5c59f5d45ec0bdbc458185c08010122d564d13"
+ },
+ "provider": "CPUExecutionProvider",
+ "execution_device": "cpu",
+ "model_load_s": 0.08256720801000483,
+ "memory": {
+  "rss_after_load_mb": 135.984375,
+  "peak_rss_mb": 179.03125,
+  "note": "ru_maxrss of a fresh process incl. interpreter + libraries"
+ },
+ "benchmark": {
+  "mode": "smoke",
+  "warmup": 3,
+  "n_per_repeat": 10,
+  "repeats": 1,
+  "metric_definitions": {
+   "primary_latency": "inference.p50 = model forward only (ms), batch 1, median over repeats of per-repeat p50",
+   "pipeline_latency": "total.p50 = preprocess + inference + decode/NMS (ms)"
+  },
+  "headline": {
+   "preprocess": {
+    "mean": 0.43759989999999993,
+    "p50": 0.38985400000000003,
+    "p95": 0.6852999999999996,
+    "p99": 0.8206600000000001,
+    "min": 0.32675,
+    "max": 0.8545
+   },
+   "inference": {
+    "mean": 20.4122834,
+    "p50": 20.7290215,
+    "p95": 22.312375,
+    "p99": 22.522975,
+    "min": 18.348583,
+    "max": 22.575625
+   },
+   "postprocess": {
+    "mean": 1.6818125,
+    "p50": 0.9845835000000001,
+    "p95": 4.314362349999999,
+    "p99": 4.64337247,
+    "min": 0.522625,
+    "max": 4.725625
+   },
+   "total": {
+    "mean": 22.5316958,
+    "p50": 22.354791499999997,
+    "p95": 24.63330625,
+    "p99": 24.76646125,
+    "min": 19.335125,
+    "max": 24.79975
+   }
+  },
+  "throughput_fps_pipeline": 44.73313920194693,
+  "throughput_fps_model_only": 48.24154386640971,
+  "n_distinct_images": 20,
+  "runs": [
+   {
+    "samples_ms": {
+     "preprocess": [
+      0.335958,
+      0.463917,
+      0.340291,
+      0.8545,
+      0.439375,
+      0.32675,
+      0.387125,
+      0.357,
+      0.4785,
+      0.392583
+     ],
+     "inference": [
+      19.151208,
+      18.348583,
+      18.784292,
+      22.575625,
+      19.947292,
+      21.990625,
+      20.986125,
+      20.881041,
+      20.862584,
+      20.595459
+     ],
+     "postprocess": [
+      2.330209,
+      0.522625,
+      4.725625,
+      0.99975,
+      0.79325,
+      0.679125,
+      0.825375,
+      0.969417,
+      1.161041,
+      3.811708
+     ],
+     "total": [
+      21.817375,
+      19.335125,
+      23.850208,
+      24.429875,
+      21.179917,
+      22.9965,
+      22.198625,
+      22.207458,
+      22.502125,
+      24.79975
+     ]
+    },
+    "summary": {
+     "preprocess": {
+      "n": 10,
+      "mean": 0.43759989999999993,
+      "median": 0.38985400000000003,
+      "p50": 0.38985400000000003,
+      "p95": 0.6852999999999996,
+      "p99": 0.8206600000000001,
+      "min": 0.32675,
+      "max": 0.8545,
+      "std": 0.1561098726940242
+     },
+     "inference": {
+      "n": 10,
+      "mean": 20.4122834,
+      "median": 20.7290215,
+      "p50": 20.7290215,
+      "p95": 22.312375,
+      "p99": 22.522975,
+      "min": 18.348583,
+      "max": 22.575625,
+      "std": 1.3610577745439345
+     },
+     "postprocess": {
+      "n": 10,
+      "mean": 1.6818125,
+      "median": 0.9845835000000001,
+      "p50": 0.9845835000000001,
+      "p95": 4.314362349999999,
+      "p99": 4.64337247,
+      "min": 0.522625,
+      "max": 4.725625,
+      "std": 1.4658222321145864
+     },
+     "total": {
+      "n": 10,
+      "mean": 22.5316958,
+      "median": 22.354791499999997,
+      "p50": 22.354791499999997,
+      "p95": 24.63330625,
+      "p99": 24.76646125,
+      "min": 19.335125,
+      "max": 24.79975,
+      "std": 1.6150073011587833
+     }
+    }
+   }
+  ]
+ },
+ "dataset": {
+  "manifest": "fullval_4952.json",
+  "manifest_sha256": "b788645b98b57315e919cb758d6fa0d0ed6c7488ed43ab32df31475cfd2c167d",
+  "n_images": 4952
+ },
+ "accuracy": {
+  "mAP": 0.334676353652766,
+  "AP50": 0.5119948083298126,
+  "AP75": 0.3592259562835737,
+  "APs": 0.1302308060593735,
+  "APm": 0.3678911089900082,
+  "APl": 0.5227298159817175,
+  "per_class": {
+   "person": {
+    "AP": 0.4450716912688388,
+    "AP50": 0.7119855341771872,
+    "n_annotations": 10777
+   },
+   "bicycle": {
+    "AP": 0.2315296954567717,
+    "AP50": 0.4140583753671936,
+    "n_annotations": 314
+   },
+   "car": {
+    "AP": 0.30128001257320186,
+    "AP50": 0.5164013039892374,
+    "n_annotations": 1918
+   },
+   "motorcycle": {
+    "AP": 0.3784800882760141,
+    "AP50": 0.6479476033369305,
+    "n_annotations": 367
+   },
+   "airplane": {
+    "AP": 0.5857959324487443,
+    "AP50": 0.8323045279114639,
+    "n_annotations": 143
+   },
+   "bus": {
+    "AP": 0.5665163982688698,
+    "AP50": 0.7367125454982406,
+    "n_annotations": 283
+   },
+   "train": {
+    "AP": 0.6146852795661718,
+    "AP50": 0.8308036519073853,
+    "n_annotations": 190
+   },
+   "truck": {
+    "AP": 0.26371391857619714,
+    "AP50": 0.440423553705596,
+    "n_annotations": 414
+   },
+   "boat": {
+    "AP": 0.18286788623644804,
+    "AP50": 0.3805108273098182,
+    "n_annotations": 424
+   },
+   "traffic light": {
+    "AP": 0.15905709403934287,
+    "AP50": 0.34753601004494805,
+    "n_annotations": 634
+   },
+   "fire hydrant": {
+    "AP": 0.5744271452325221,
+    "AP50": 0.748999737503983,
+    "n_annotations": 101
+   },
+   "stop sign": {
+    "AP": 0.5862109902830624,
+    "AP50": 0.6717335245915129,
+    "n_annotations": 75
+   },
+   "parking meter": {
+    "AP": 0.3678592179983995,
+    "AP50": 0.5335382674848237,
+    "n_annotations": 60
+   },
+   "bench": {
+    "AP": 0.1863757142014414,
+    "AP50": 0.30903329031066573,
+    "n_annotations": 411
+   },
+   "bird": {
+    "AP": 0.2446938202765995,
+    "AP50": 0.39343028660379686,
+    "n_annotations": 427
+   },
+   "cat": {
+    "AP": 0.5609233082539485,
+    "AP50": 0.8171005476513417,
+    "n_annotations": 202
+   },
+   "dog": {
+    "AP": 0.4975912975380351,
+    "AP50": 0.6864778988136901,
+    "n_annotations": 218
+   },
+   "horse": {
+    "AP": 0.48579985716542046,
+    "AP50": 0.7023450275835231,
+    "n_annotations": 272
+   },
+   "sheep": {
+    "AP": 0.3897484914651845,
+    "AP50": 0.6290993154214296,
+    "n_annotations": 354
+   },
+   "cow": {
+    "AP": 0.40900069532457817,
+    "AP50": 0.6471595193375069,
+    "n_annotations": 372
+   },
+   "elephant": {
+    "AP": 0.5748437018269753,
+    "AP50": 0.8216343624105434,
+    "n_annotations": 252
+   },
+   "bear": {
+    "AP": 0.6346894906813569,
+    "AP50": 0.8008915829748295,
+    "n_annotations": 71
+   },
+   "zebra": {
+    "AP": 0.6062186502430411,
+    "AP50": 0.8676632888613778,
+    "n_annotations": 266
+   },
+   "giraffe": {
+    "AP": 0.6250450814899583,
+    "AP50": 0.8581232343596715,
+    "n_annotations": 232
+   },
+   "backpack": {
+    "AP": 0.08767230929498718,
+    "AP50": 0.18103125588573335,
+    "n_annotations": 371
+   },
+   "umbrella": {
+    "AP": 0.35177920405238977,
+    "AP50": 0.5597437620769676,
+    "n_annotations": 407
+   },
+   "handbag": {
+    "AP": 0.08495249011444855,
+    "AP50": 0.1676348087490675,
+    "n_annotations": 540
+   },
+   "tie": {
+    "AP": 0.2538658578806846,
+    "AP50": 0.4202640615807466,
+    "n_annotations": 252
+   },
+   "suitcase": {
+    "AP": 0.3168564742292222,
+    "AP50": 0.5218559423447553,
+    "n_annotations": 299
+   },
+   "frisbee": {
+    "AP": 0.502865600412935,
+    "AP50": 0.7310633506816506,
+    "n_annotations": 115
+   },
+   "skis": {
+    "AP": 0.1787629817681184,
+    "AP50": 0.35166102692250184,
+    "n_annotations": 241
+   },
+   "snowboard": {
+    "AP": 0.24867776965434263,
+    "AP50": 0.43426636948891384,
+    "n_annotations": 69
+   },
+   "sports ball": {
+    "AP": 0.2597720244279774,
+    "AP50": 0.386388110814489,
+    "n_annotations": 260
+   },
+   "kite": {
+    "AP": 0.2954043277592185,
+    "AP50": 0.48690710664387116,
+    "n_annotations": 327
+   },
+   "baseball bat": {
+    "AP": 0.20616321641352311,
+    "AP50": 0.4174845839493581,
+    "n_annotations": 145
+   },
+   "baseball glove": {
+    "AP": 0.28684636888904075,
+    "AP50": 0.5101192632655979,
+    "n_annotations": 148
+   },
+   "skateboard": {
+    "AP": 0.42921697973546363,
+    "AP50": 0.6911684340841937,
+    "n_annotations": 179
+   },
+   "surfboard": {
+    "AP": 0.2841201210024532,
+    "AP50": 0.5047943661047507,
+    "n_annotations": 267
+   },
+   "tennis racket": {
+    "AP": 0.3682269932891278,
+    "AP50": 0.6656405105783396,
+    "n_annotations": 225
+   },
+   "bottle": {
+    "AP": 0.2562313213928249,
+    "AP50": 0.4255037187608495,
+    "n_annotations": 1013
+   },
+   "wine glass": {
+    "AP": 0.23926282511633354,
+    "AP50": 0.3884851313727809,
+    "n_annotations": 341
+   },
+   "cup": {
+    "AP": 0.2910212812792002,
+    "AP50": 0.44120698957325,
+    "n_annotations": 895
+   },
+   "fork": {
+    "AP": 0.25289334444557304,
+    "AP50": 0.4072892638253809,
+    "n_annotations": 215
+   },
+   "knife": {
+    "AP": 0.10297271427443551,
+    "AP50": 0.19942867643860787,
+    "n_annotations": 325
+   },
+   "spoon": {
+    "AP": 0.09270976627877654,
+    "AP50": 0.16285296909617025,
+    "n_annotations": 253
+   },
+   "bowl": {
+    "AP": 0.35069646372035745,
+    "AP50": 0.4966323210311437,
+    "n_annotations": 623
+   },
+   "banana": {
+    "AP": 0.23279389124307454,
+    "AP50": 0.40747839170331873,
+    "n_annotations": 370
+   },
+   "apple": {
+    "AP": 0.1277664178513884,
+    "AP50": 0.18195905379239627,
+    "n_annotations": 236
+   },
+   "sandwich": {
+    "AP": 0.28260383418458,
+    "AP50": 0.4307691852291401,
+    "n_annotations": 177
+   },
+   "orange": {
+    "AP": 0.25394020418249497,
+    "AP50": 0.34600490713798276,
+    "n_annotations": 285
+   },
+   "broccoli": {
+    "AP": 0.188480693729607,
+    "AP50": 0.35766546784933634,
+    "n_annotations": 312
+   },
+   "carrot": {
+    "AP": 0.18376604200293725,
+    "AP50": 0.3217128626194272,
+    "n_annotations": 365
+   },
+   "hot dog": {
+    "AP": 0.2917285851424396,
+    "AP50": 0.4519655887658278,
+    "n_annotations": 125
+   },
+   "pizza": {
+    "AP": 0.45942322810842373,
+    "AP50": 0.6462442572283994,
+    "n_annotations": 284
+   },
+   "donut": {
+    "AP": 0.4080945530031629,
+    "AP50": 0.5696306064463847,
+    "n_annotations": 328
+   },
+   "cake": {
+    "AP": 0.3078915969878244,
+    "AP50": 0.5093757127477946,
+    "n_annotations": 310
+   },
+   "chair": {
+    "AP": 0.23123945090746004,
+    "AP50": 0.3984683003645731,
+    "n_annotations": 1771
+   },
+   "couch": {
+    "AP": 0.41396503642127225,
+    "AP50": 0.6015252651761456,
+    "n_annotations": 261
+   },
+   "potted plant": {
+    "AP": 0.19039468809271243,
+    "AP50": 0.3559009444281721,
+    "n_annotations": 342
+   },
+   "bed": {
+    "AP": 0.42815354698815283,
+    "AP50": 0.6279633121764857,
+    "n_annotations": 163
+   },
+   "dining table": {
+    "AP": 0.2783750148712645,
+    "AP50": 0.4183313191540602,
+    "n_annotations": 695
+   },
+   "toilet": {
+    "AP": 0.5652119396744787,
+    "AP50": 0.7780734246810429,
+    "n_annotations": 179
+   },
+   "tv": {
+    "AP": 0.510797608418349,
+    "AP50": 0.7184795011678742,
+    "n_annotations": 288
+   },
+   "laptop": {
+    "AP": 0.5106036403038097,
+    "AP50": 0.6828249949558418,
+    "n_annotations": 231
+   },
+   "mouse": {
+    "AP": 0.46638304564169625,
+    "AP50": 0.6797623026821487,
+    "n_annotations": 106
+   },
+   "remote": {
+    "AP": 0.15534886109695364,
+    "AP50": 0.29181324914731893,
+    "n_annotations": 283
+   },
+   "keyboard": {
+    "AP": 0.4472825563965594,
+    "AP50": 0.661300641470315,
+    "n_annotations": 153
+   },
+   "cell phone": {
+    "AP": 0.2645377766713129,
+    "AP50": 0.4046936905594199,
+    "n_annotations": 262
+   },
+   "microwave": {
+    "AP": 0.43824898042516175,
+    "AP50": 0.6162883060171884,
+    "n_annotations": 55
+   },
+   "oven": {
+    "AP": 0.324016042947701,
+    "AP50": 0.4912145562533767,
+    "n_annotations": 143
+   },
+   "toaster": {
+    "AP": 0.2624098911000978,
+    "AP50": 0.44356518060241096,
+    "n_annotations": 9
+   },
+   "sink": {
+    "AP": 0.28044548408289305,
+    "AP50": 0.4553226791485964,
+    "n_annotations": 225
+   },
+   "refrigerator": {
+    "AP": 0.4766302334761621,
+    "AP50": 0.6574085813185486,
+    "n_annotations": 126
+   },
+   "book": {
+    "AP": 0.10220844422478453,
+    "AP50": 0.2209283489442646,
+    "n_annotations": 1129
+   },
+   "clock": {
+    "AP": 0.39950293158094774,
+    "AP50": 0.6285555903886129,
+    "n_annotations": 267
+   },
+   "vase": {
+    "AP": 0.2970855784118612,
+    "AP50": 0.47436190887141577,
+    "n_annotations": 274
+   },
+   "scissors": {
+    "AP": 0.2435884082216653,
+    "AP50": 0.3599224407573764,
+    "n_annotations": 36
+   },
+   "teddy bear": {
+    "AP": 0.37879234309156956,
+    "AP50": 0.5682474721725285,
+    "n_annotations": 190
+   },
+   "hair drier": {
+    "AP": 0.002072300253281142,
+    "AP50": 0.002302555836979047,
+    "n_annotations": 11
+   },
+   "toothbrush": {
+    "AP": 0.15692954836264258,
+    "AP50": 0.30218822616448293,
+    "n_annotations": 57
+   }
+  },
+  "n_images": 4952,
+  "n_detections": 258683,
+  "street_classes": [
+   "person",
+   "bicycle",
+   "car",
+   "motorcycle",
+   "bus",
+   "truck",
+   "traffic light",
+   "stop sign"
+  ]
+ },
+ "parity": {
+  "max_abs_err": 3.989868640899658,
+  "max_rel_err": 1168.7117155938595,
+  "mean_abs_err": 0.020090701793342443,
+  "passed": false,
+  "gating": false,
+  "atol": 0.001,
+  "rtol": 0.001,
+  "n_images": 20,
+  "reference": "PyTorch FP32 eager, same weights/resolution/preprocessing"
+ },
+ "failures": [],
+ "valid": true,
+ "quantization": {
+  "calibration_manifest": "calib_100.json",
+  "n_calibration": 100,
+  "method": "minmax",
+  "format": "QDQ",
+  "weights": "int8 per-channel",
+  "activations": "uint8"
+ },
+ "invalid_reasons": [],
+ "repeat_spread_pct": 0.0,
+ "attempts": 1,
+ "is_drift_check": false,
+ "noisy": false
+}
