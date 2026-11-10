@@ -1,0 +1,25 @@
+# environments and secrets
+.venv/
+.env
+.env.*
+
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# downloaded or generated, not committed
+/models/
+data/raw/
+data/images/
+*.onnx
+results/*/detections/
+results/*/onnx/
+site/node_modules/
+site/dist/
+
+# os
+.DS_Store
+*.log
