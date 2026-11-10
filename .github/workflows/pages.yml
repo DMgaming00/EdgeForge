@@ -1,0 +1,17 @@
+name: pages
+on:
+  workflow_dispatch:     # manual only; nothing deploys until you run it
+permissions: { contents: read, pages: write, id-token: write }
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: cd site && npm install && npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site/dist }
+      - id: d
+        uses: actions/deploy-pages@v4
